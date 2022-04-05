@@ -54,18 +54,17 @@ def GrossProfit(ticker):
     return grossprofit
 
 def opex(ticker):
-    opex=yf.Ticker(ticker).financials.loc['Other Operating Expenses'][0] + yf.Ticker(ticker).financials.loc['Selling General and Administration'][0]
+    opex=yf.Ticker(ticker).financials.loc['Other Operating Expenses'][0] + yf.Ticker(ticker).financials.loc['Selling General Administrative'][0]
     return opex
 
 def EBITDA(ticker):
     rev = yf.Ticker(ticker).financials.loc['Total Revenue'][0]
     cogs = yf.Ticker(ticker).financials.loc['Cost Of Revenue'][0]
     grossprofit = rev-cogs
-    opex=yf.Ticker(ticker).financials.loc['Other Operating Expenses'][0] + yf.Ticker(ticker).financials.loc['Selling General and Administration'][0]
+    opex=yf.Ticker(ticker).financials.loc['Other Operating Expenses'][0] + yf.Ticker(ticker).financials.loc['Selling General Administrative'][0]
     ebitda = grossprofit - opex
     return ebitda
 
 print(EBITDA(ticker))
-rev2 = yf.Ticker(ticker).financials.loc['Total Revenue']
-cogs2 = yf.Ticker(ticker).financials.loc['Cost Of Revenue']
+
 
